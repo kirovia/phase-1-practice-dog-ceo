@@ -2,6 +2,10 @@ console.log('%c HI', 'color: red');console.log('%c HI', 'color: orange');console
 
 const imgUrl = "https://dog.ceo/api/breeds/image/random/4";
 const imgContainer = document.querySelector('#dog-image-container');
+const breedUrl = "https://dog.ceo/api/breeds/list/all";
+const breedContainer = document.querySelector('#dog-breeds');
+
+let test;
 
 // CHALLENGE 1
 
@@ -14,3 +18,12 @@ fetch(imgUrl)
         imgContainer.append(newImg);
     }));
 
+// CHALLENGE 2
+
+fetch(breedUrl)
+    .then(resp => resp.json())
+    .then(data => Object.keys(data.message).forEach(e => {
+        const li = document.createElement('li');
+        li.innerText = e;
+        breedContainer.append(li);
+    }));
