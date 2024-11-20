@@ -1,10 +1,9 @@
-console.log('%c HI', 'color: red');console.log('%c HI', 'color: orange');console.log('%c HI', 'color: goldenrod');console.log('%c HI', 'color: green');console.log('%c HI', 'color: blue');console.log('%c HI', 'color: indigo');console.log('%c HI', 'color: violet');
-
 const imgUrl = "https://dog.ceo/api/breeds/image/random/4";
 const imgContainer = document.querySelector('#dog-image-container');
 const breedUrl = "https://dog.ceo/api/breeds/list/all";
 const breedContainer = document.querySelector('#dog-breeds');
 let allBreeds;
+const dropdown = document.querySelector('#breed-dropdown');
 
 // CHALLENGE 1
 
@@ -40,3 +39,45 @@ fetch(breedUrl)
         }))
     });
 
+// CHALLENGE 4
+
+dropdown.addEventListener('change', () => {
+    switch (dropdown.value) {
+        case 'a':
+            allBreeds.forEach(e => {
+                if (e.innerText[0] !== 'a') {
+                    e.classList.add('hidden');
+                } else if (e.innerText[0] === 'a' && e.classList.contains('hidden')) {
+                    e.classList.remove('hidden');
+                }
+            });
+            break;
+        case 'b':
+            allBreeds.forEach(e => {
+                if (e.innerText[0] !== 'b') {
+                    e.classList.add('hidden');
+                } else if (e.innerText[0] === 'b' && e.classList.contains('hidden')) {
+                    e.classList.remove('hidden');
+                }
+            });
+            break;
+        case 'c':
+            allBreeds.forEach(e => {
+                if (e.innerText[0] !== 'c') {
+                    e.classList.add('hidden');
+                } else if (e.innerText[0] === 'c' && e.classList.contains('hidden')) {
+                    e.classList.remove('hidden');
+                }
+            });
+            break;
+        case 'd':
+            allBreeds.forEach(e => {
+                if (e.innerText[0] !== 'd') {
+                    e.classList.add('hidden');
+                } else if (e.innerText[0] === 'd' && e.classList.contains('hidden')) {
+                    e.classList.remove('hidden');
+                }
+            });
+            break;
+    }
+});
